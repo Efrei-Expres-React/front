@@ -23,7 +23,7 @@ const NotLoggedLinks = () =>{
     return (
         <>
         <Link to="/login" className="text-white px-4">Connexion</Link>
-        <Link to="/services" className="text-white px-4">Inscription</Link>
+        <Link to="/register" className="text-white px-4">Inscription</Link>
         </>
     )
 }

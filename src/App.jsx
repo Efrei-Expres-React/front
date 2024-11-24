@@ -3,6 +3,7 @@ import HomePage from './pages/Home'
 import Login from './pages/Login'
 import Navbar from './components/modules/Navbar'
 import { Route, Routes } from 'react-router-dom'
+import Register from './pages/Register'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                         {/*Public Routes*/}
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
 
                          {/*404*/}
                         <Route path="/*" element={<HomePage />} />
