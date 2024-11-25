@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import Register from './pages/Register'
 import UpdateProfile from './pages/UpdateProfile'
 import Profile from './pages/Profile'
-
+import ProtectedRoute from './routes/ProtectedRoute'
 
 function App() {
 
@@ -19,8 +19,11 @@ function App() {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/update-profile" element={<UpdateProfile />} />
+
+                        {/*Private Routes*/}      
+                        <Route path="/profile" element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
+                        <Route path="/update-profile" element={<ProtectedRoute> <UpdateProfile /> </ProtectedRoute>} />
+                        
 
                          {/*404*/}
                         <Route path="/*" element={<HomePage />} />
