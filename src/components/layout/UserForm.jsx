@@ -5,20 +5,20 @@ const UserForm = ({handleSubmit, formData, handleInputChange, button, inputPassw
   return (
     <form onSubmit={handleSubmit}>
     <Input 
-        id="firstName"
-        name="firstName"
+        id="firstname"
+        name="firstname"
         type="text"
-        value={formData.firstName}
+        value={formData.firstname}
         onChange={handleInputChange}
         placeholder="Enter your first name"
         title="First Name"
         required
       />
         <Input 
-        id="lastName"
-        name="lastName"
+        id="lastname"
+        name="lastname"
         type="text"
-        value={formData.lastName}
+        value={formData.lastname}
         onChange={handleInputChange}
         placeholder="Enter your last name"
         title="Last name"

@@ -11,9 +11,9 @@ import { getData, postData, putData } from './api';
   }
 
 
-  export async function register(firstName, lastName, email, password, birth, bio) {
+  export async function register(firstname, lastname, email, password, birth, bio) {
     try {
-        const body = {firstName, lastName, email, password, birth, bio}
+        const body = {firstname, lastname, email, password, birth, bio}
       const res = await postData('api/auth/register', body);
       return res;
     } catch (error) {
@@ -34,9 +34,9 @@ import { getData, postData, putData } from './api';
 
 
   
-  export async function putMyProfile(firstName, lastName,birth, bio, token) {
+  export async function putMyProfile(firstname, lastname,birth, bio, token) {
     try {
-      const body = {firstName, lastName,birth, bio}
+      const body = {firstname, lastname,birth, bio}
       const res = await putData('api/user/me',body, token);
       return res;
     } catch (error) {

@@ -12,7 +12,7 @@ import { useState , useEffect, useContext } from 'react';
 const UpdateProfile = () => {
 const [profile, setProfile] = useState();
 const {token } = useContext(AuthContext);
-  const { formData, handleInputChange , setFormData} = useForm({ birth: '', bio : '', firstName:  '', lastName: ''});
+  const { formData, handleInputChange , setFormData} = useForm({ birth: '', bio : '', firstname:  '', lastname: ''});
   const [error, setError] = React.useState('');
   const navigate = useNavigate();
   
@@ -32,8 +32,8 @@ const {token } = useContext(AuthContext);
   useEffect(() => {
     if (profile) {
       setFormData({
-        firstName: profile.firstName,
-        lastName: profile.lastName,
+        firstname: profile.firstname,
+        lastname: profile.lastname,
         birth: profile.birth,
         bio: profile.bio,
       });
@@ -45,7 +45,7 @@ const {token } = useContext(AuthContext);
     e.preventDefault();
     setError('');
     try {
-        const res = await putMyProfile(formData.firstName,formData.lastName, formData.birth, formData.bio, token);
+        const res = await putMyProfile(formData.firstname,formData.lastname, formData.birth, formData.bio, token);
             if (res?.data) {          
                 navigate('/login');
         }

@@ -28,7 +28,7 @@ const Profile = () => {
       {error && <Alerts message={error} type='error'/> }
       <ul>
         <li> Email : {profile?.email}</li>
-        <li> Name : {profile?.firstName} {profile?.lastName}</li>
+        <li> Name : {profile?.firstname} {profile?.lastname}</li>
         <li> Date of birth : {profile?.birth}</li>
         <li> Bio : {profile?.bio}</li>
       </ul>

@@ -8,7 +8,7 @@ import UserForm from '../components/layout/UserForm';
 
 
 const Register = () => {
-  const { formData, handleInputChange } = useForm({ email: '', password: '', birth: '', verifyPassword : '', firstName:'', lastName:''});
+  const { formData, handleInputChange } = useForm({ email: '', password: '', birth: '', verifyPassword : '', firstname:'', lastname:''});
   const [error, setError] = React.useState('');
   const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const Register = () => {
     setError('');
     if(formData.password === formData.verifyPassword){
         try {
-            const res = await register(formData.firstName,formData.lastName, formData.email, formData.password, formData.birth, formData.bio);
+            const res = await register(formData.firstname,formData.lastname, formData.email, formData.password, formData.birth, formData.bio);
             if (res?.data?.user) {          
                 navigate('/login');
         }
