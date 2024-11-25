@@ -34,7 +34,7 @@ const Profile = () => {
       </ul>
       <Link to="/update-profile">
       <button className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        Modifier profile
+        Modifier profil
       </button>
       </Link>
     </div>
