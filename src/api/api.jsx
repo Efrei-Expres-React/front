@@ -1,9 +1,10 @@
 const fetchData = async (endpoint, method, data, token = '') => {
   const body = data ? JSON.stringify(data) : undefined;
   const jwtToken = token || '';
+  const apiUrl = import.meta.env.VITE_API_URL;;
 
   try {
-    const response = await fetch(`http://localhost:3000/${endpoint}`, {
+    const response = await fetch(`${apiUrl}/${endpoint}`, {
       method,
       headers: {
         'Content-Type': 'application/json',
