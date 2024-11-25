@@ -7,6 +7,6 @@ export const useForm = (initialState = {}) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    return { formData, handleInputChange };
+    return { formData, handleInputChange, setFormData };
 };
 

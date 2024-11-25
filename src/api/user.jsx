@@ -1,4 +1,4 @@
-import { postData } from './api';
+import { getData, postData, putData } from './api';
 
  export async function login(email, password) {
     try {
@@ -20,4 +20,28 @@ import { postData } from './api';
       throw error;
     }
   }
+
+
+  export async function getMyProfile(token) {
+    try {
+      const res = await getData('api/user/me', null, token);
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+
+
+  
+  export async function putMyProfile(firstName, lastName,birth, bio, token) {
+    try {
+      const body = {firstName, lastName,birth, bio}
+      const res = await putData('api/user/me',body, token);
+      return res;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 

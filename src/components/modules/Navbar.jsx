@@ -13,8 +13,8 @@ const LoggedLinks = () =>{
     return (
         <>
         <Link to="/about" className="text-white px-4">Mon CV</Link>
-        <Link to="/services" className="text-white px-4">Mon profil</Link>
-        <Link to="/services" className="text-white px-4" onClick={handleLogout}>Se déconnecter</Link>
+        <Link to="/profile" className="text-white px-4">Mon profil</Link>
+        <Link to="/" className="text-white px-4" onClick={handleLogout}>Se déconnecter</Link>
         </>
     )
 }
