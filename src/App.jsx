@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import UpdateProfile from './pages/UpdateProfile'
 import Profile from './pages/Profile'
 import ProtectedRoute from './routes/ProtectedRoute'
+import MyCvs from './pages/MyCv'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 
                         {/*Private Routes*/}      
                         <Route path="/profile" element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
+                        <Route path="/my-cv" element={<ProtectedRoute> <MyCvs /> </ProtectedRoute>} />
                         <Route path="/update-profile" element={<ProtectedRoute> <UpdateProfile /> </ProtectedRoute>} />
                         
 

@@ -1,4 +1,5 @@
 const fetchData = async (endpoint, method, data, token = '') => {
+
   const body = data ? JSON.stringify(data) : undefined;
   const jwtToken = token || '';
   const apiUrl = import.meta.env.VITE_API_URL;;
