@@ -12,9 +12,9 @@ const LoggedLinks = () =>{
     }
     return (
         <>
-        <Link to="/my-cv" className="text-white px-4">Mes CV</Link>
-        <Link to="/profile" className="text-white px-4">Mon profil</Link>
-        <Link to="/" className="text-white px-4" onClick={handleLogout}>Se déconnecter</Link>
+        <Link to="/my-cv" className="px-4 text-white">Mes CV</Link>
+        <Link to="/profile" className="px-4 text-white">Mon profil</Link>
+        <Link to="/" className="px-4 text-white" onClick={handleLogout}>Se déconnecter</Link>
         </>
     )
 }
@@ -22,18 +22,18 @@ const LoggedLinks = () =>{
 const NotLoggedLinks = () =>{
     return (
         <>
-        <Link to="/login" className="text-white px-4">Connexion</Link>
-        <Link to="/register" className="text-white px-4">Inscription</Link>
+        <Link to="/login" className="px-4 text-white">Connexion</Link>
+        <Link to="/register" className="px-4 text-white">Inscription</Link>
         </>
     )
 }
 
   return (
-    <nav className="bg-blue-500 p-4 shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-lg font-semibold">Home</Link>
+    <nav className="p-4 bg-blue-500 shadow-md">
+      <div className="container flex items-center justify-between mx-auto">
+        <Link to="/" className="text-lg font-semibold text-white">Home</Link>
         <div>
-          <Link to="/" className="text-white px-4">CV</Link>
+          <Link to="/allcv" className="px-4 text-white">CV</Link>
           {user ? LoggedLinks() : NotLoggedLinks()}
         </div>
       </div>
