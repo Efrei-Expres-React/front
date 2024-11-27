@@ -1,17 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../utils/context/AuthContext';
-import { useContext } from 'react';
 
 const Dashboard = () => {
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-3xl p-8 bg-white rounded-lg shadow-lg">
         <h2 className="mb-6 text-3xl font-semibold text-center text-gray-700">Welcome to Your Dashboard</h2>
         <div className="mb-6 text-lg text-center text-gray-600">
-          <p>Welcome back, <strong>{user.firstname} {user.lastname}</strong>!</p>
           <p className="mt-4">You are now ready to explore your dashboard.</p>
         </div>
 
