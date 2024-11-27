@@ -3,7 +3,6 @@ import trash from '../../assets/svg/trash.svg';
 
 
 const RecoAccordion = ({recoList, onDelete}) => {
-  console.log(recoList)
   return (
     <>
     {recoList?.map((reco)=>(

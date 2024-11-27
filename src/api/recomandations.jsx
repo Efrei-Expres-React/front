@@ -1,5 +1,5 @@
 
-import { deleteData, getData } from "./api";
+import { deleteData, getData, postData } from "./api";
 
 export async function getMyrecomandations(token) {
     try {
@@ -19,3 +19,25 @@ export async function getMyrecomandations(token) {
       throw error;
     }
   }
+
+
+  
+export async function getCvRecommandations(id, token) {
+  try {
+    const res = await getData('api/reco/'+id, null, token);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+export async function createRecomandation(data, token) {
+  try {
+    const res = await postData('api/reco/', data, token);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+}
+
