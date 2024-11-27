@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback} from "react";
 import Input from "../atoms/Input";
-import { useForm } from "../../utils/hooks/useForm";
+import { useForm } from "../../utils/hooks/UseForm";
 import IconButton from "../atoms/IconButton";
 import send from '../../assets/svg/send.svg';
 import { useContext } from "react";

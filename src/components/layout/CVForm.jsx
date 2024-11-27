@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from '../../utils/hooks/useForm';
+import { useForm } from '../../utils/hooks/UseForm';
 import Input from '../atoms/Input';
 import Alerts from '../atoms/Alerts';
 

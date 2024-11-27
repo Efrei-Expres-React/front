@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import { useForm } from '../utils/hooks/useForm';
+import { useForm } from '../utils/hooks/UseForm';
 import Alerts from '../components/atoms/Alerts';
 import { getMyProfile, putMyProfile } from '../api/user';
 import UserForm from '../components/layout/UserForm';

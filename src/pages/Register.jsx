@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import { useForm } from '../utils/hooks/useForm';
+import { useForm } from '../utils/hooks/UseForm';
 import Alerts from '../components/atoms/Alerts';
 import { register } from '../api/user';
 import UserForm from '../components/layout/UserForm';
