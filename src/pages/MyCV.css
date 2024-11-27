@@ -1,0 +1,56 @@
+.cv-card {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.cv-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cv-header h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.cv-header p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.cv-section {
+  margin-bottom: 20px;
+}
+
+.cv-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.cv-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cv-section li {
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.cv-section h4 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+.cv-section p {
+  font-size: 1rem;
+  color: #666;
+}

@@ -25,30 +25,21 @@ const Dashboard = () => {
             </a>
 
             {/* Card 2 */}
-            <div className="p-6 text-center bg-green-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">Statistics</h3>
-              <p className="mt-2 text-gray-600">Monitor your performance and metrics.</p>
-            </div>
+            <a href="/allcv">
+               <div className="p-6 text-center bg-blue-100 rounded-lg shadow-md">
+                  <h3 className="text-xl font-semibold text-gray-800">View CVs</h3>
+                     <p className="mt-2 text-gray-600">Click here to view our CVs collection.</p>
+               </div>
+            </a>
 
             {/* Card 3 */}
-            <div className="p-6 text-center bg-yellow-100 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800">Settings</h3>
-              <p className="mt-2 text-gray-600">Manage your account settings and preferences.</p>
-            </div>
+            <a href="/profile">
+               <div className="p-6 text-center bg-blue-100 rounded-lg shadow-md">
+                  <h3 className="text-xl font-semibold text-gray-800">My Profile</h3>
+                     <p className="mt-2 text-gray-600">Click here to view or edit your Profile.</p>
+               </div>
+            </a>
           </div>
-        </div>
-
-        {/* Optional: Logout button */}
-        <div className="mt-8 text-center">
-          <button
-            onClick={() => {
-              // Log out functionality (could be added later)
-              navigate('/');
-            }}
-            className="p-3 text-white bg-red-500 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
-          >
-            Logout
-          </button>
         </div>
       </div>
     </div>

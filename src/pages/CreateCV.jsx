@@ -13,11 +13,17 @@ const CreateCV = () => {
     setError('');
 
     try {
+      console.log('Form data:', formData); // Débogage des données du formulaire
+      console.log('Experiences:', experiences); // Débogage des expériences
+
       const res = await createCV(formData.firstname, formData.lastname, formData.description, experiences);
+      console.log('API Response:', res); // Débogage de la réponse API
+
       if (res?.data?.cv) {
         navigate('/dashboard');
       }
     } catch (err) {
+      console.error('Error:', err); // Débogage de l'erreur
       setError(err.message);
     }
   };
