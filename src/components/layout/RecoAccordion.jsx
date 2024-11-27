@@ -3,6 +3,7 @@ import trash from '../../assets/svg/trash.svg';
 
 
 const RecoAccordion = ({recoList, onDelete}) => {
+  console.log(recoList)
   return (
     <>
     {recoList?.map((reco)=>(
@@ -13,7 +14,7 @@ const RecoAccordion = ({recoList, onDelete}) => {
         </div>
         <div className="collapse-content">
           <ul className="divide-y divide-gray-300">
-            {reco.recommandations?.length > 0 ? reco.recommendations?.map((recoItem, index)=>(
+            {reco?.recommendations?.map((recoItem, index)=>(
               <li
                   key={index}
                   className="flex justify-between items-center py-2"
@@ -31,7 +32,7 @@ const RecoAccordion = ({recoList, onDelete}) => {
                     <img src={trash} />
                   </button>
                 </li>
-            )) :  <div>Pas encore de recommandations</div>}
+            )) }
           </ul>
         </div>
       </div>
