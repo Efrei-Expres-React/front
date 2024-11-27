@@ -47,6 +47,7 @@ const getProfile = useCallback( async () => {
     try {
       await deleteOneCV(id, token)
       await getProfile(token)
+      await getRecommandations()
     } catch (error) {
       setError(error.message)
     }
