@@ -16,8 +16,6 @@ const CreateCV = () => {
     try {
       console.log('Form data:', formData); // Debugging form data
       const payload = {
-        firstname: formData.firstname,
-        lastname: formData.lastname,
         title: formData.title,
         description: formData.description,
         visibility: formData.visibility,
