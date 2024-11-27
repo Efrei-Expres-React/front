@@ -25,7 +25,6 @@ function App() {
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/allcv" element={<AllCV />} />
-                        <Route path="/cv/:id" element={<CvDetail />} />
 
 
                         {/*Private Routes*/}      
@@ -34,6 +33,8 @@ function App() {
                         <Route path="/update-profile" element={<ProtectedRoute> <UpdateProfile /> </ProtectedRoute>} />
                         <Route path="/createcv" element={<ProtectedRoute> <CreateCV /> </ProtectedRoute>} />
                         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+                        <Route path="/cv/:id" element={<ProtectedRoute><CvDetail /></ProtectedRoute>} />
+
 
                          {/*404*/}
                         <Route path="/*" element={<HomePage />} />

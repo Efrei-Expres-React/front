@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { getCVs } from '../api/cv';
 import CVlist from '../components/layout/CVlist';
-import { AuthContext } from '../utils/context/AuthContext';
-import { useContext, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 const AllCV = () => {
   const [searchTerm, setSearchTerm] = useState('');
