@@ -33,9 +33,9 @@ export async function createCV(firstname, lastname, description) {
 }
 
 // Récupération des CV
-export async function getCVs(token) {
+export async function getCVs() {
   try {
-    const res = await getData('api/cv/getAllPublicCVTitles', null, token);
+    const res = await getData('api/cv/getAllPublicCVTitles', null, '');
     return res;
   } catch (error) {
     throw error;

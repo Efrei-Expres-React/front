@@ -6,29 +6,27 @@ import { AuthContext } from '../utils/context/AuthContext';
 import { useContext, useCallback, useEffect, useRef } from 'react';
 
 const AllCV = () => {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [cvs, setCvs] = useState();
-  const {token } = useContext(AuthContext);
   const isMounted = useRef(false)
 
 
 
   const getCvList = useCallback( async () => {
     try {
-        const res =  await getCVs(token);
+        const res =  await getCVs();
         setCvs(res.data.cvs)
     } catch (error) {
         setError(error.message)
     }
-  }, [token]);
+  }, []);
 
   useEffect(() => {
-    if(!isMounted.current && token) {
+    if(!isMounted.current) {
       getCvList()
       isMounted.current = false
     }
-  }, [isMounted, token]);
+  }, [isMounted]);
 
 
 
