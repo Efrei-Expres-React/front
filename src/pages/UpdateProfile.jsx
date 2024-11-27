@@ -47,7 +47,7 @@ const {token } = useContext(AuthContext);
     try {
         const res = await putMyProfile(formData.firstname,formData.lastname, formData.birth, formData.bio, token);
             if (res?.data) {          
-                navigate('/login');
+                navigate('/profile');
         }
         } catch (err) {
             setError(err.message);

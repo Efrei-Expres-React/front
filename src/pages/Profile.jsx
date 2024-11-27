@@ -37,7 +37,7 @@ const Profile = () => {
         Modifier profil
       </button>
       </Link>
-    </div>
+      </div>
   )
 }
 
