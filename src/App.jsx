@@ -9,7 +9,7 @@ import Profile from './pages/Profile'
 import ProtectedRoute from './routes/ProtectedRoute'
 import CreateCV from './pages/CreateCV'
 import Dashboard from './pages/Dashboard';
-import MyCvs from './pages/MyCv'
+import MyCvs from './pages/MyCvs'
 import AllCV from './pages/AllCV';
 import CvDetail from './pages/CvDetail';
 
