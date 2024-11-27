@@ -18,8 +18,8 @@ const CreateCV = () => {
         title: formData.title,
         description: formData.description,
         visibility: formData.visibility,
-        experienceScolaire: formData.educationalExperiences,
-        experienceProfessionnel: formData.professionalExperiences,
+        experienceScolaire: formData.experienceScolaire,
+        experienceProfessionnel: formData.experienceProfessionnel,
       };
 
       console.log('Payload:', payload); // Debugging the payload
