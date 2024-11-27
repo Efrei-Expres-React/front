@@ -20,6 +20,16 @@ import { deleteData, getData, postData, putData } from './api';
   }
 
 
+  export async function getCvByID(id, token) {
+    try {
+      const res = await getData(`api/cv/one/${id}`, null, token);
+      return res;
+    } catch (error) {
+      console.log(error)
+      throw error;
+    }
+  }
+
 
 // Création d'un CV
 export async function createCV(firstname, lastname, description) {
