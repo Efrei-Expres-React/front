@@ -2,10 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import CVForm from '../components/layout/cvForm';
 import { createCV } from '../api/cv';
+import { AuthContext } from '../utils/context/AuthContext';
+import { useContext } from 'react';
 
 const CreateCV = () => {
   const [error, setError] = React.useState('');
   const navigate = useNavigate();
+  const {token } = useContext(AuthContext);
 
   const handleSubmit = async (formData) => {
     setError('');
@@ -24,12 +27,12 @@ const CreateCV = () => {
 
       console.log('Payload:', payload); // Debugging the payload
 
-      const res = await createCV(payload);
+      const res = await createCV(payload, token);
 
       console.log('API Response:', res); // Debugging API response
 
       if (res?.data?.cv) {
-        navigate('/dashboard');
+        navigate('/my-cv');
       }
     } catch (err) {
       console.error('Error:', err); // Debugging errors
