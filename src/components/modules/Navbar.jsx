@@ -33,7 +33,7 @@ const NotLoggedLinks = () =>{
       <div className="container flex items-center justify-between mx-auto">
         <Link to="/" className="text-lg font-semibold text-white">Home</Link>
         <div>
-          <Link to="/" className="px-4 text-white">CV</Link>
+          <Link to="/allcv" className="px-4 text-white">CV</Link>
           {user ? LoggedLinks() : NotLoggedLinks()}
         </div>
       </div>
