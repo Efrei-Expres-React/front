@@ -121,7 +121,6 @@ const CVForm = ({ onSubmit, error }) => {
     }
 
     try {
-      console.log('Form data:', formData);
       const res = await createCV(formData.firstname, formData.lastname, formData.description, educationalExperiences, professionalExperiences);
       console.log('API Response:', res);
       if (res?.data?.cv) {
