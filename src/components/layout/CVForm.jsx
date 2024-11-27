@@ -11,7 +11,12 @@ const ExperienceForm = ({ experiences, setExperiences, type }) => {
   };
 
   const addExperience = () => {
-    setExperiences([...experiences, { title: '', company: '', startDate: '', endDate: '' }]);
+    const newExperience = 
+      type === 'educational'
+        ? { type: '', lieuFormation: '', dateDebut: '', dateFin: '', description: '' }
+        : { poste: '', entreprise: '', dateDebut: '', dateFin: '', missions: [] };
+
+    setExperiences([...experiences, newExperience]);
   };
 
   const removeExperience = (index) => {
@@ -19,62 +24,155 @@ const ExperienceForm = ({ experiences, setExperiences, type }) => {
     setExperiences(newExperiences);
   };
 
+  const handleMissionChange = (expIndex, missionIndex, event) => {
+    const newExperiences = [...experiences];
+    newExperiences[expIndex].missions[missionIndex][event.target.name] = event.target.value;
+    setExperiences(newExperiences);
+  };
+
+  const addMission = (expIndex) => {
+    const newExperiences = [...experiences];
+    newExperiences[expIndex].missions = newExperiences[expIndex].missions || [];
+    newExperiences[expIndex].missions.push({ titre: '', description: '' });
+    setExperiences(newExperiences);
+  };
+
+  const removeMission = (expIndex, missionIndex) => {
+    const newExperiences = [...experiences];
+    newExperiences[expIndex].missions = newExperiences[expIndex].missions.filter((_, i) => i !== missionIndex);
+    setExperiences(newExperiences);
+  };
+
   return (
     <div className="mt-10">
       <h3 className="mb-4 text-lg font-semibold text-gray-700">
-        {type === 'educational' ? 'Expériences pédagogiques' : 'Expériences professionnelles'}
+        {type === 'educational' ? 'Expériences Scolaires' : 'Expériences Professionnelles'}
       </h3>
       {experiences.map((experience, index) => (
         <div key={index} className="p-6 mt-4 border rounded-lg bg-gray-50">
           <div className="grid grid-cols-2 gap-6">
-            <Input
-              id={`${type}-title-${index}`}
-              name="title"
-              type="text"
-              value={experience.title}
-              onChange={(e) => handleExperienceChange(index, e)}
-              placeholder={type === 'educational' ? 'Diplôme ou formation' : 'Nom du poste'}
-              title={type === 'educational' ? 'Diplôme/Formation' : 'Poste occupé'}
-              required
-            />
-            <Input
-              id={`${type}-company-${index}`}
-              name="company"
-              type="text"
-              value={experience.company}
-              onChange={(e) => handleExperienceChange(index, e)}
-              placeholder={type === 'educational' ? 'Institution' : 'Entreprise'}
-              title={type === 'educational' ? 'Institution' : 'Entreprise'}
-              required
-            />
+            {type === 'educational' ? (
+              <>
+                <Input
+                  id={`${type}-type-${index}`}
+                  name="type"
+                  type="text"
+                  value={experience.type}
+                  onChange={(e) => handleExperienceChange(index, e)}
+                  placeholder="Type de diplôme"
+                  title="Type"
+                  required
+                />
+                <Input
+                  id={`${type}-lieuFormation-${index}`}
+                  name="lieuFormation"
+                  type="text"
+                  value={experience.lieuFormation}
+                  onChange={(e) => handleExperienceChange(index, e)}
+                  placeholder="Lieu de formation"
+                  title="Lieu"
+                  required
+                />
+              </>
+            ) : (
+              <>
+                <Input
+                  id={`${type}-poste-${index}`}
+                  name="poste"
+                  type="text"
+                  value={experience.poste}
+                  onChange={(e) => handleExperienceChange(index, e)}
+                  placeholder="Poste occupé"
+                  title="Poste"
+                  required
+                />
+                <Input
+                  id={`${type}-entreprise-${index}`}
+                  name="entreprise"
+                  type="text"
+                  value={experience.entreprise}
+                  onChange={(e) => handleExperienceChange(index, e)}
+                  placeholder="Entreprise"
+                  title="Entreprise"
+                  required
+                />
+              </>
+            )}
           </div>
           <div className="grid grid-cols-2 gap-6 mt-4">
             <Input
-              id={`${type}-startDate-${index}`}
-              name="startDate"
+              id={`${type}-dateDebut-${index}`}
+              name="dateDebut"
               type="date"
-              value={experience.startDate}
+              value={experience.dateDebut}
               onChange={(e) => handleExperienceChange(index, e)}
-              title="Début"
+              title="Date de début"
               required
             />
             <Input
-              id={`${type}-endDate-${index}`}
-              name="endDate"
+              id={`${type}-dateFin-${index}`}
+              name="dateFin"
               type="date"
-              value={experience.endDate}
+              value={experience.dateFin}
               onChange={(e) => handleExperienceChange(index, e)}
-              title="Fin"
+              title="Date de fin"
               required
             />
           </div>
+
+          {type === 'professional' && (
+            <div className="mt-4">
+              <h4 className="mb-2 font-semibold text-gray-600">Missions</h4>
+              {experience.missions?.map((mission, missionIndex) => (
+                <div key={missionIndex} className="grid grid-cols-2 gap-6 mb-4">
+                  <Input
+                    id={`mission-titre-${index}-${missionIndex}`}
+                    name="titre"
+                    type="text"
+                    value={mission.titre}
+                    onChange={(e) => handleMissionChange(index, missionIndex, e)}
+                    placeholder="Titre de la mission"
+                    title="Titre"
+                    required
+                  />
+                  <Input
+                    id={`mission-description-${index}-${missionIndex}`}
+                    name="description"
+                    type="text"
+                    value={mission.description}
+                    onChange={(e) => handleMissionChange(index, missionIndex, e)}
+                    placeholder="Description de la mission"
+                    title="Description"
+                    required
+                  />
+                  {missionIndex > 0 && (
+                    <button
+                      type="button"
+                      onClick={() => removeMission(index, missionIndex)}
+                      className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600"
+                    >
+                      Supprimer Mission
+                    </button>
+                  )}
+                </div>
+              ))}
+              <button
+                type="button"
+                onClick={() => addMission(index)}
+                className="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+              >
+                Ajouter une Mission
+              </button>
+            </div>
+          )}
+
           {index > 0 && (
             <button
               type="button"
               onClick={() => removeExperience(index)}
               className="px-4 py-2 mt-4 text-white bg-red-500 rounded hover:bg-red-600"
             >
-              Supprimer
+              Supprimer Expérience
             </button>
           )}
         </div>
@@ -82,9 +180,9 @@ const ExperienceForm = ({ experiences, setExperiences, type }) => {
       <button
         type="button"
         onClick={addExperience}
-        className="px-6 py-2 mt-6 text-white bg-blue-500 rounded hover:bg-blue-600"
+        className="px-6 py-2 mt-6 text-white bg-green-500 rounded hover:bg-green-600"
       >
-        Ajouter une expérience
+        Ajouter une Expérience
       </button>
     </div>
   );
@@ -92,73 +190,77 @@ const ExperienceForm = ({ experiences, setExperiences, type }) => {
 
 const CVForm = ({ onSubmit, error }) => {
   const { formData, handleInputChange } = useForm({
-    firstname: '',
-    lastname: '',
+    title: '',
     description: '',
+    visibility: false,
   });
 
-  const [educationalExperiences, setEducationalExperiences] = useState([]);
-  const [professionalExperiences, setProfessionalExperiences] = useState([]);
+  const [experienceScolaire, setExperienceScolaire] = useState([]);
+  const [experienceProfessionnel, setExperienceProfessionnel] = useState([]);
 
-  const validateForm = () => {
-    const allExperiences = [...educationalExperiences, ...professionalExperiences];
-    for (const exp of allExperiences) {
-      if (!exp.startDate || !exp.endDate || new Date(exp.startDate) > new Date(exp.endDate)) {
-        return false;
-      }
-    }
-    return true;
-  };
-
-  // Fonction qui gère la soumission des données au backend
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Vérification de la validité des dates
-    if (!validateForm()) {
-      alert('Veuillez vérifier les dates dans vos expériences.');
-      return;
-    }
-
-    try {
-      console.log('Form data:', formData);
-      const res = await createCV(formData.firstname, formData.lastname, formData.description, educationalExperiences, professionalExperiences);
-      console.log('API Response:', res);
-      if (res?.data?.cv) {
-        // Redirection vers le dashboard après succès
-        navigate('/dashboard');
-      }
-    } catch (err) {
-      console.error('Error:', err);
-      setError('Une erreur est survenue lors de la soumission du CV.');
-    }
+    const payload = {
+      ...formData,
+      experienceScolaire,
+      experienceProfessionnel,
+    };
+    onSubmit(payload);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       {error && <Alerts message={error} type="error" />}
-
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6">
+        <Input
+          id="title"
+          name="title"
+          type="text"
+          value={formData.title}
+          onChange={handleInputChange}
+          placeholder="Titre du CV"
+          title="Titre"
+          required
+        />
+        <Input
+          id="description"
+          name="description"
+          type="text"
+          value={formData.description}
+          onChange={handleInputChange}
+          placeholder="Description du CV"
+          title="Description"
+          required
+        />
+        <div className="flex items-center">
+          <input
+            id="visibility"
+            name="visibility"
+            type="checkbox"
+            checked={formData.visibility}
+            onChange={(e) => handleInputChange({ target: { name: 'visibility', value: e.target.checked } })}
+          />
+          <label htmlFor="visibility" className="ml-2 text-sm text-gray-600">
+            Visibilité
+          </label>
+        </div>
 
       </div>
 
-      
-
-      {/* Expériences pédagogiques */}
+      {/* Expériences Scolaires */}
       <ExperienceForm
-        experiences={educationalExperiences}
-        setExperiences={setEducationalExperiences}
+        experiences={experienceScolaire}
+        setExperiences={setExperienceScolaire}
         type="educational"
       />
 
-      {/* Expériences professionnelles */}
+      {/* Expériences Professionnelles */}
       <ExperienceForm
-        experiences={professionalExperiences}
-        setExperiences={setProfessionalExperiences}
+        experiences={experienceProfessionnel}
+        setExperiences={setExperienceProfessionnel}
         type="professional"
       />
 
-      {/* Bouton de soumission */}
       <button
         type="submit"
         className="w-full p-4 mt-8 text-white bg-green-500 rounded-lg hover:bg-green-600"

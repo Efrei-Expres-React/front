@@ -22,10 +22,9 @@ import { deleteData, getData, postData, putData } from './api';
 
 
 // Création d'un CV
-export async function createCV(firstname, lastname, description) {
+export async function createCV(payload, token) {
   try {
-    const body = { firstname, lastname, description };
-    const res = await postData('api/cv', body);
+    const res = await postData('api/cv/create', payload, token);
     return res;
   } catch (error) {
     throw error;
@@ -33,9 +32,9 @@ export async function createCV(firstname, lastname, description) {
 }
 
 // Récupération des CV
-export async function getCVs() {
+export async function getCVs(token) {
   try {
-    const res = await getData('api/cv/getAllPublicCVTitles', null, '');
+    const res = await getData('api/cv', null, token);
     return res;
   } catch (error) {
     throw error;
