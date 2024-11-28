@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import CVForm from '../components/layout/cvForm';
+import CVForm from '../components/layout/CVForm';
 import { createCV } from '../api/cv';
 
 const CreateCV = () => {
